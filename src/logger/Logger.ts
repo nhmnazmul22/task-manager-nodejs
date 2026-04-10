@@ -109,4 +109,11 @@ export class Logger {
   public debug(event: string, description: string): void {
     this.write("DEBUG", event, description);
   }
+
+  /**
+   * Close the log stream when the application is shutting down
+   */
+  public close(): void {
+    this.logStream.end();
+  }
 }
