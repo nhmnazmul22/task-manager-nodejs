@@ -39,7 +39,7 @@ export class Server {
         }
 
         try {
-          this.route.handle(req, res);
+          await this.route.handle(req, res);
         } catch (err) {
           this.handleServerError(err, res);
         }
