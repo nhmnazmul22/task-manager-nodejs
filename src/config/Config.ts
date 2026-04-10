@@ -43,8 +43,8 @@ export class Config {
    * @param key string
    * @returns string | undefined
    */
-  public get(key: string): string | undefined {
-    return this.envMap.get(key);
+  public get(key: string, defaultValue: string = ""): string {
+    return this.envMap.get(key) ?? defaultValue;
   }
 
   /**
@@ -52,10 +52,8 @@ export class Config {
    * @param key string
    * @returns string | undefined
    */
-  public getNumber(key: string): number | undefined {
+  public getNumber(key: string, defaultValue: number): number {
     const value = this.get(key);
-    if (value) {
-      return Number(value);
-    }
+    return value ? Number(value) : defaultValue;
   }
 }
